@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>conversor simples</title>
+</head>
+<body>
+    <h1>conversor de unidades</h1>
+
+    <button onclick="converterDistancia()">Converter Distância</button>
+    <section id="resultado-distancia"></section>
+
+
+    <button onclick="converterTemperatura()">Converter Temperatura</button>
+    <section id="resultado-temperatura"></section>
+
+    <script>
+        function converterDistancia() {
+            let metros = prompt("Digite a distância em metros:");
+
+            metros = parseFloat(metros);
+
+            if (isNaN(metros)) {
+                alert("Por favor, digite um número válido.");
+                return;
+            }
+
+            let km = metros / 1000;
+            let hm = metros / 100;
+            let dam = metros / 10;
+            let dm = metros * 10;
+            let cm = metros * 100;
+            let mm = metros * 1000;
+
+            let mensagem = `A distância de ${metros} metro(s) corresponde a:<br><br>` +
+                           `${km} km<br>` +
+                           `${hm} hm<br>` +
+                           `${dam} dam<br>` +
+                           `${dm} dm<br>` +
+                           `${cm} cm<br>` +
+                           `${mm} mm`;
+
+            document.getElementById("resultado-distancia").innerHTML = mensagem;
+        }
+
+        function converterTemperatura() {
+            let celsius = prompt("Digite a temperatura em graus Celsius (°C):");
+
+            celsius = parseFloat(celsius);
+
+            if (isNaN(celsius)) {
+                alert("Por favor, digite um número válido.");
+                return;
+            }
+
+            let kelvin = celsius + 273.15;
+            let fahrenheit = (celsius * 9/5) + 32;
+
+            let mensagem = `A temperatura de ${celsius} °C corresponde a:<br><br>` +
+                           `${kelvin.toFixed(2)} K<br>` +
+                           `${fahrenheit.toFixed(2)} °F`;
+
+            document.getElementById("resultado-temperatura").innerHTML = mensagem;
+        }
+    </script>
+</body>
+</html>
